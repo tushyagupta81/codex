@@ -1,7 +1,4 @@
-import mongoose from "mongoose";
-import userSchema from "../models/user.js";
-
-const User = mongoose.model("user", userSchema);
+import User from "../models/user.js";
 
 const getUserById = async (req, res) => {
   const user = await User.findById(req.params.id);
