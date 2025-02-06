@@ -6,8 +6,8 @@ import Communities from "./pages/Communities";
 import Doctors from "./pages/Doctors";
 import Resources from "./pages/Resources";
 import Footer from "./components/Footer";
-import ParentSignUp from "./pages/parentsignup";
-import Login from "./pages/login";
+import ParentSignUp from "./pages/ParentSignUp";
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
 

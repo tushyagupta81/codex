@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 configDotenv();
 
-export function userVerification(req, res, next) {
+export function getUserId(req, res) {
   const token = req.cookies.token;
   if (!token) {
     return res.json({ status: false });
@@ -15,10 +15,10 @@ export function userVerification(req, res, next) {
     }
 
     const user = await User.findById(data.id);
-    if (!user) {
-      return res.json({ status: false });
+    if (user) {
+      return res.json({ status: true, user: user.email, id: data.id });
     } 
 
-    next();
+    return res.json({ status: false });
   });
 }

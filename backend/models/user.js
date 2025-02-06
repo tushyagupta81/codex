@@ -33,6 +33,9 @@ const userSchema = new mongoose.Schema(
       enum: ["male", "female", "other"],
       required: true,
     },
+    communities: {
+      type: [mongoose.Schema.Types.ObjectId],
+    },
     medical: {
       primaryCondition: {
         type: String,

@@ -5,14 +5,16 @@ import {
   getAllUsers,
   getUserById,
 } from "../controllers/users.js";
+import { getUserId } from "../util/getUserId.js";
 import { userVerification } from "../middleware/authMiddleware.js";
 
 const userRouter = Router();
 
-userRouter.route("/:id").get(getUserById).delete(deteleUserById);
+userRouter.get("/:id", userVerification, getUserById);
+userRouter.delete("/:id", userVerification, deteleUserById);
+userRouter.get("/", userVerification, getAllUsers);
 
-userRouter.route("/").get(getAllUsers).post(userVerification);
-
+userRouter.route("/").post(getUserId);
 userRouter.post("/signup", signup);
 userRouter.post("/login", login);
 
