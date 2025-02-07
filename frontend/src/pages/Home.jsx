@@ -6,8 +6,16 @@ import {
   Shield,
   UserPlus,
 } from "lucide-react";
+// import { useEffect } from "react";
+// import { io } from "socket.io-client";
 
 const Home = () => {
+  // useEffect(() => {
+  //   const socket = io("http://localhost:8080/chatroom", {
+  //     path: "/chatroom/socket.io",
+  //   });
+  //   socket.on("message", () => console.log("hello"));
+  // }, []);
   return (
     <div>
       <div className="hero1 ">

@@ -1,22 +1,21 @@
 import { Router } from "express";
-
+import { login, signup } from "../controllers/auth.js";
 import {
   deteleUserById,
   getAllUsers,
-  createUser,
   getUserById,
 } from "../controllers/users.js";
+import { getUserId } from "../util/getUserId.js";
+import { userVerification } from "../middleware/authMiddleware.js";
 
 const userRouter = Router();
 
-userRouter
-  .route("/:id")
-  .get(getUserById)
-  .delete(deteleUserById);
+userRouter.get("/:id", userVerification, getUserById);
+userRouter.delete("/:id", userVerification, deteleUserById);
+userRouter.get("/", userVerification, getAllUsers);
 
-userRouter
-  .route("/")
-  .post(createUser)
-  .get(getAllUsers);
+userRouter.route("/").post(getUserId);
+userRouter.post("/signup", signup);
+userRouter.post("/login", login);
 
 export default userRouter;
