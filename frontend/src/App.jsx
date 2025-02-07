@@ -10,6 +10,7 @@ import ParentSignUp from "./pages/ParentSignUp";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
 
       <Footer />
