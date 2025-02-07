@@ -16,6 +16,7 @@ const io = new Server(server, {
 });
 const PORT = 8080;
 
+
 connectMongo("mongodb://127.0.0.1:27017/hacktu");
 
 // app.listen(PORT);
@@ -41,3 +42,13 @@ io.of("/chatroom").on("connection", (socket) => {
 });
 
 server.listen(PORT);
+
+app.get('/', (req, res) => {
+    res.send('Server is running...');
+  });
+  
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+
+// app.listen(PORT);

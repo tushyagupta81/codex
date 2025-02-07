@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
 import Chat from "./pages/Chat";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/events" element={<Events />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
       </Routes>
 
       <Footer />
