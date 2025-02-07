@@ -10,6 +10,7 @@ import ParentSignUp from "./pages/parentsignup";
 import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+
       </Routes>
 
       <Footer />
