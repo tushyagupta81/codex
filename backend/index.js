@@ -10,7 +10,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5173",
   },
   path: "/chatroom/socket.io"
 });
@@ -37,6 +37,7 @@ app.use("/users", userRouter);
 io.of("/chatroom").on("connection", (socket) => {
   console.log("hello user");
   socket.emit("message","hello");
+  socket.on("message",(msg) => console.log(msg));
 });
 
 server.listen(PORT);
