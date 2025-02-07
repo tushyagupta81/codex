@@ -20,7 +20,7 @@ function Chat() {
     },
   ]);
 
-  const [groups, setGroups] = useState([
+  const [groups] = useState([
     { 
       name: 'Support Group', 
       members: 114, 
@@ -54,8 +54,7 @@ function Chat() {
   ]);
 
   const [selectedGroup, setSelectedGroup] = useState(0);
-  const [showImageInput, setShowImageInput] = useState(false);
-  const [newGroupImage, setNewGroupImage] = useState('');
+  // const [showImageInput] = useState(false);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -77,20 +76,6 @@ function Chat() {
     setNewMessage('');
   };
 
-  const handleGroupImageUpdate = (e) => {
-    e.preventDefault();
-    if (!newGroupImage.trim()) return;
-
-    const updatedGroups = [...groups];
-    updatedGroups[selectedGroup] = {
-      ...updatedGroups[selectedGroup],
-      image: newGroupImage
-    };
-
-    setGroups(updatedGroups);
-    setNewGroupImage('');
-    setShowImageInput(false);
-  };
 
   return (
     <div className="flex h-screen bg-gray-100">
@@ -158,23 +143,6 @@ function Chat() {
             </div>
 
           </div>
-          {showImageInput && (
-            <form onSubmit={handleGroupImageUpdate} className="mt-4 flex gap-2">
-              <input
-                type="text"
-                value={newGroupImage}
-                onChange={(e) => setNewGroupImage(e.target.value)}
-                placeholder="Enter new image URL..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button 
-                type="submit"
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-              >
-                Update
-              </button>
-            </form>
-          )}
         </div>
 
         {/* Messages */}
