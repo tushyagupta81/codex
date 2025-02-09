@@ -13,6 +13,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // For navigation
+import { Shield } from "lucide-react";
 
 const EventCard = () => {
   const [eventCount, setEventCount] = useState(0);
@@ -42,11 +43,19 @@ const EventCard = () => {
       className="bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition"
       onClick={() => navigate("/events")} // Redirect to the events page
     >
-      <h3 className="text-md font-semibold">Upcoming Events</h3>
+      <div className="flex items-center gap-4">
+      <div className="">
+        <Shield className="text-blue-600 bg-blue-100 size-10 p-2 border rounded-lg"/>
+      </div>
+      <div>
+      <h3 className="text-lg font-semibold">Upcoming Events</h3>
       <p className="text-gray-600">{eventCount} events this week</p>
+      </div>
+      </div>
     </div>
   );
 };
 
 export default EventCard;
+
 
